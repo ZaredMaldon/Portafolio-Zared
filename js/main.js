@@ -64,7 +64,8 @@ if (contactForm) {
                 const successMsg = formSuccess.getAttribute('data-' + lang);
                 if (successMsg) formSuccess.textContent = successMsg;
             } else {
-                alert('Something went wrong. Please try again.');
+                const data = await res.json();
+                alert('Error: ' + (data.error || JSON.stringify(data)));
             }
         } catch {
             alert('Network error. Please try again.');
